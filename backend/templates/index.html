@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Therapist</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        p {
+            font-size: 18px;
+            color: #9aa0a6;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #404040;
+        }
+        .status-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #404040;
+        }
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        .status-label {
+            font-weight: 500;
+        }
+        .status-value {
+            color: #34a853;
+            font-weight: 600;
+        }
+        .error {
+            color: #ea4335;
+        }
+        .loading {
+            color: #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Therapist</h1>
+        <p>Your AI companion for emotional support</p>
+        
+        <div class="status">
+            <div class="status-item">
+                <span class="status-label">Backend Status</span>
+                <span class="status-value" id="backend-status">Running</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Emotion Detection</span>
+                <span class="status-value" id="emotion-status">Ready</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">AI Integration</span>
+                <span class="status-value" id="ai-status">Connected</span>
+            </div>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 14px;">
+            This is the backend server. The React frontend should be running on port 3000.
+        </p>
+    </div>
+
+    <script>
+        // Simple status checking
+        fetch('/api/emotions')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('emotion-status').textContent = 'Ready';
+            })
+            .catch(error => {
+                document.getElementById('emotion-status').textContent = 'Error';
+                document.getElementById('emotion-status').className = 'error';
+            });
+    </script>
+</body>
+</html>

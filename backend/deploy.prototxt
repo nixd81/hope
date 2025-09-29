@@ -1,0 +1,6 @@
+# This is a placeholder for the OpenCV face detection prototxt file
+# In production, download the actual file from:
+# https://raw.githubusercontent.com/opencv/opencv/master/samples/dnn/face_detector/opencv_face_detector.pbtxt
+
+# For now, this file will be downloaded automatically when the application runs
+# The actual prototxt content should be downloaded from the OpenCV repository

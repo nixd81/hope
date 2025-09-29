@@ -1,0 +1,6 @@
+# This is a placeholder for the OpenCV face detection model file
+# In production, download the actual file from:
+# https://github.com/opencv/opencv_3rdparty/raw/dnn_samples_face_detector_20170830/opencv_face_detector.caffemodel
+
+# For now, this file will be downloaded automatically when the application runs
+# The actual caffemodel content should be downloaded from the OpenCV repository
